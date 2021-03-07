@@ -12,9 +12,9 @@ Como primera parte del diseño, se desarrollaron los componentes básicos para e
 
 - Flip Flop D 
  
-Biestable utilizado en la mayoría de los componentes como memoria básica para las operaciones de lógica secuencial. Su función es dejar pasar lo que entra por D, a la salida Q, después de un pulso del reloj. Con esto se pudo generar sincronismo, registros y contadores. 
+<p>Biestable utilizado en la mayoría de los componentes como memoria básica para las operaciones de lógica secuencial. Su función es dejar pasar lo que entra por D, a la salida Q, después de un pulso del reloj. Con esto se pudo generar sincronismo, registros y contadores. 
 Contador genérico de N bits 
-Este bloque se compone de N flip-flops tipo D en cascada, y se emplea para realizar el conteo de 0 a N y generar el ciclo de muestreo. Al llegar a N genera la señal de habilitación del registro para retener los datos muestreados, luego en N+1 genera un reset para el contador BCD y resetea la propia cuenta. 
+Este bloque se compone de N flip-flops tipo D en cascada, y se emplea para realizar el conteo de 0 a N y generar el ciclo de muestreo. Al llegar a N genera la señal de habilitación del registro para retener los datos muestreados, luego en N+1 genera un reset para el contador BCD y resetea la propia cuenta. </p>
 
 - Comparador de N bits 
 
@@ -45,11 +45,11 @@ de lógica.
 • Una memoria ROM que contiene la información sobre los caracteres a mostrar en pantalla, y funciona como un combinacional al cual se le dan los datos de dirección del carácter, fila y columna, y cuya salida es un bit que está en "1" o en "0" según el carácter y la posición. • Decodificador 3 a 8. para demultiplexar. 
 • 2 bloques que generan el sincronismo horizontal y vertical necesario para la comunicación con el monitor de entrada VGA. 
 
-#VOLTIMETRO DIGITAL
+<b><h1>VOLTIMETRO DIGITAL</h1><b>
 
 El bloque sigma delta genera pulsos donde la densidad de estos es proporcional al nivel de tensión Vin, con el bloque ADC se contabilizan dichos niveles y su valor queda codificado en BCD, luego esos valores son mostrados en pantalla mediante el control VGA. Todos los bloques están sincronizados con el clk configurado e instanciado del módulo MMCM, encargado de generar un reloj de 25 MHz. 
 
--Prueba del circuito
+<h2>Prueba del circuito</h2>
 
 Para el testeo, se generó una sucesión de 1's equiespaciados, de tal manera de poder controlar la tensión de entrada al circuito mediante un DAC. La salida generada se plasmó en el monitor en saltos en la tensión de aprox 0,10 V y se agregó un led indicador del nivel de tensión.
 

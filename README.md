@@ -55,7 +55,7 @@ Cuando se llega al valor 3300000, el contador binario genera un flag de reset el
  <br>
 • 2 bloques que generan el sincronismo horizontal y vertical necesario para la comunicación con el monitor de entrada VGA.</p> 
 </ul>
-<b><h1>Voltimetro Digital</h1></b>
+<b><h1>Voltímetro Digital</h1></b>
 
 El bloque sigma delta genera pulsos donde la densidad de estos es proporcional al nivel de tensión Vin, con el bloque ADC se contabilizan dichos niveles y su valor queda codificado en BCD, luego esos valores son mostrados en pantalla mediante el control VGA. Todos los bloques están sincronizados con el clk configurado e instanciado del módulo MMCM, encargado de generar un reloj de 25 MHz. 
 

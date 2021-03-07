@@ -40,7 +40,7 @@ Una vez desarrollados los componentes básicos, se procedió a analizar el proye
 Cuando se llega al valor 3300000, el contador binario genera un flag de reset el cual resetea al contador BCD y a la vez habilita a 3 registros de 4 bits que van a mantener los valores censados hasta la siguiente señal de reset. </p>
 
 <li>Bloque 3: Controlador VGA</li>
-
+<br>
 <p>El controlador de la VGA recibe los datos del ADC, los procesa y luego los presenta en pantalla, este bloque posee: 
 • 2 contadores binarios que funcionan como coordenadas bidimensionales de los píxeles de la pantalla y determinados bits funcionan como selector en el multiplexor y como coordenadas en la memoria ROM. 
 • Los registro a la entrada para el mismo funcionamiento que en el bloque ADC.
@@ -48,7 +48,7 @@ Cuando se llega al valor 3300000, el contador binario genera un flag de reset el
 de lógica. 
 • Una memoria ROM que contiene la información sobre los caracteres a mostrar en pantalla, y funciona como un combinacional al cual se le dan los datos de dirección del carácter, fila y columna, y cuya salida es un bit que está en "1" o en "0" según el carácter y la posición. • Decodificador 3 a 8. para demultiplexar. 
 • 2 bloques que generan el sincronismo horizontal y vertical necesario para la comunicación con el monitor de entrada VGA.</p> 
-
+</ul>
 <b><h1>Voltimetro Digital</h1><b>
 
 El bloque sigma delta genera pulsos donde la densidad de estos es proporcional al nivel de tensión Vin, con el bloque ADC se contabilizan dichos niveles y su valor queda codificado en BCD, luego esos valores son mostrados en pantalla mediante el control VGA. Todos los bloques están sincronizados con el clk configurado e instanciado del módulo MMCM, encargado de generar un reloj de 25 MHz. 

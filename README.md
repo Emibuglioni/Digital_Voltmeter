@@ -6,7 +6,7 @@ Se Implementó un voltímetro conformado por un conversor A/D Sigma-Delta con sa
 Se utilizó la placa Arty A7-35.
 
 
-#DISEÑO
+#<b>DISEÑO</b>
 
 Como primera parte del diseño, se desarrollaron los componentes básicos para el armado de los bloques principales del voltímetro. 
 

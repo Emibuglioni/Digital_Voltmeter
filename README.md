@@ -49,7 +49,9 @@ Cuando se llega al valor 3300000, el contador binario genera un flag de reset el
  <br>
 • Un multiplexor que se encarga de elegir el carácter según la posición de la pantalla en que se encuentran los contadores. La selección de la entrada que se va a reflejar en la salida se hace a través de la entrada de selección, habilitada por la señal “ena”. Ambas dependen de la sincronización horizontal y vertical del bloque de control VGA, procesadas por el bloque de lógica. 
  <br>
-• Una memoria ROM que contiene la información sobre los caracteres a mostrar en pantalla, y funciona como un combinacional al cual se le dan los datos de dirección del carácter, fila y columna, y cuya salida es un bit que está en "1" o en "0" según el carácter y la posición. • Decodificador 3 a 8. para demultiplexar. 
+• Una memoria ROM que contiene la información sobre los caracteres a mostrar en pantalla, y funciona como un combinacional al cual se le dan los datos de dirección del carácter, fila y columna, y cuya salida es un bit que está en "1" o en "0" según el carácter y la posición.
+ <br>
+• Decodificador 3 a 8. para demultiplexar. 
  <br>
 • 2 bloques que generan el sincronismo horizontal y vertical necesario para la comunicación con el monitor de entrada VGA.</p> 
 </ul>

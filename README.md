@@ -6,23 +6,25 @@ Se Implementó un voltímetro conformado por un conversor A/D Sigma-Delta con sa
 Se utilizó la placa Arty A7-35.
 
 
-<b><h1>DISEÑO</h1></b>
+<b><h1>Diseño</h1></b>
 
 Como primera parte del diseño, se desarrollaron los componentes básicos para el armado de los bloques principales del voltímetro. 
 
-- Flip Flop D 
+<ul>
+ <li>Flip Flop D</li> 
  
 <p>Biestable utilizado en la mayoría de los componentes como memoria básica para las operaciones de lógica secuencial. Su función es dejar pasar lo que entra por D, a la salida Q, después de un pulso del reloj. Con esto se pudo generar sincronismo, registros y contadores. 
 Contador genérico de N bits 
 Este bloque se compone de N flip-flops tipo D en cascada, y se emplea para realizar el conteo de 0 a N y generar el ciclo de muestreo. Al llegar a N genera la señal de habilitación del registro para retener los datos muestreados, luego en N+1 genera un reset para el contador BCD y resetea la propia cuenta. </p>
 
-- Comparador de N bits 
+<li>Comparador de N bits</li> 
 
 El comparador de N bits se encarga de ir comparando bit a bit las dos entradas ( A y B), indicando la relación de igualdad o desigualdad entre ellas por medio de "tres flags lógicos"
 que corresponden a las relaciones A igual B, A mayor que B y A menor que B. Cada uno de estos flags se activará solo cuando la relación a la que corresponde sea verdadera, es decir, su salida sea 1 y las otras dos produzcan una salida igual a cero. Si la comparación del bit más significativo resulta mayor o menor, el resultado de la operación finaliza, si son iguales se habilita el siguiente comparador del bit consecutivo y vuelve a comparar, así sucesivamente hasta llegar al último bit. 
 Contador BCD genérico de N dígitos 
 Para generar un contador BCD genérico de N dígitos, se acoplaron varias etapas del contador BCD de un dígito. Este último, está conformado por un contador de 4 bits y un bloque que genera un flag cuando la cuenta llega al número 9, lo cual indica que hay que resetear la cuenta y comenzar de nuevo. 
 
+</ul>
 
 Una vez desarrollados los componentes básicos, se procedió a analizar el proyecto en 3 bloques generales. 
 
@@ -45,7 +47,7 @@ de lógica.
 • Una memoria ROM que contiene la información sobre los caracteres a mostrar en pantalla, y funciona como un combinacional al cual se le dan los datos de dirección del carácter, fila y columna, y cuya salida es un bit que está en "1" o en "0" según el carácter y la posición. • Decodificador 3 a 8. para demultiplexar. 
 • 2 bloques que generan el sincronismo horizontal y vertical necesario para la comunicación con el monitor de entrada VGA. 
 
-<b><h1>VOLTIMETRO DIGITAL</h1><b>
+<b><h1>Voltimetro Digital</h1><b>
 
 El bloque sigma delta genera pulsos donde la densidad de estos es proporcional al nivel de tensión Vin, con el bloque ADC se contabilizan dichos niveles y su valor queda codificado en BCD, luego esos valores son mostrados en pantalla mediante el control VGA. Todos los bloques están sincronizados con el clk configurado e instanciado del módulo MMCM, encargado de generar un reloj de 25 MHz. 
 
